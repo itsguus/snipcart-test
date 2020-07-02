@@ -1,2 +1,2 @@
-# clean-jekyll
-clean jekyll site, no content
+# digitalmadman
+A site for myself
