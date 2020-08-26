@@ -1,5 +1,4 @@
 {% include header.html %}
-
 <h1>{{ content }}</h1>
 {% assign products = site.products | where:'language', page.language %}
 {% for item in products %}
@@ -7,15 +6,6 @@
 <img src="/img/kwal.jpg" alt="">
 <p>Price: {{ item.price }}</p>
 <p>Description: {{ item.description_text }}</p>
-        <button class="snipcart-add-item"
-        data-item-name="{{ item.name }}"
-        data-item-id="{{ item.sku }}"
-        data-item-price="{{ item.price }}"
-        data-item-url="{{site.url}}{{ item.url }}"
-        data-item-description="{{ item.description_text }}"
-        data-item-image="{{ item.image }}">
-        Buy
-        </button>
     {% endfor %}    
 
 {% include footer.html %}
