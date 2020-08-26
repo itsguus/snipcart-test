@@ -17,7 +17,7 @@ defaults:
     values:
       language: en
       layout: product
-      permalink: /nl/products/:title/
+      permalink: /en/products/:title/
   - scope:
       path: "_products/nl"
       type: products
