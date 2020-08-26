@@ -3,13 +3,15 @@
     <img src="/img/kwal.jpg" alt="">
     <p>Price: {{ page.price }}</p>
     <p>Description: {{ page.description_text }}</p>
-    <button class="snipcart-add-item" id="{{ item.sku }}"
-        data-item-id="{{ item.sku }}"
-        data-item-price="{{ item.price }}"
-        data-item-url="{{site.url}}{{ item.url }}"
-        data-item-description="{{ item.description_text }}"
-        data-item-image="{{ item.image }}"
-        data-item-name="{{ item.name }}">
-    Buy
-</button>
+    <div class="container">
+        <button class="snipcart-add-item"
+        data-item-id="{{ page.sku }}"
+        data-item-price="{{ page.price }}"
+        data-item-url="{{site.url}}{{ page.url }}"
+        data-item-description="{{ page.description_text }}"
+        data-item-image="{{ page.image }}"
+        data-item-name="{{ page.name }}">
+        Buy
+        </button>
+    </div>
 {% include footer.html %}
