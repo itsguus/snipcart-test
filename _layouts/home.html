@@ -1,5 +1,19 @@
 {% include header.html %}
-<div class="container">
-
-</div>
+{% for item in site.products %}
+<a href="{{ item.url }}"><h1>{{ item.title }}</h1></a>
+<img src="/img/kwal.jpg" alt="">
+<p>Price: {{ item.price }}</p>
+<p>Description: {{ item.description_text }}</p>
+    <div class="container">
+        <button class="snipcart-add-item"
+        data-item-id="{{ item.sku }}"
+        data-item-price="{{ item.price }}"
+        data-item-url=""
+        data-item-description="{{ item.description_text }}"
+        data-item-image="{{ item.image }}"
+        data-item-name="{{ item.name }}">
+        Buy
+        </button>
+    </div>
+    {% endfor %}
 {% include footer.html %}

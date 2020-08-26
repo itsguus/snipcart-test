@@ -1,20 +1,20 @@
-title: Digital Madman
+title: Snipcart Test
 description: 
 url:
 
 permalink: /blog/:title/
 
 defaults:
-  -
-    scope:
+  - scope:
       path: "" # an empty string here means all files in the project
     values:
       layout: "page"
+  -
     scope:
       path: "" # an empty string here means all files in the project
-      type: posts
+      type: products
     values:
-      layout: "post"
+      layout: "product"
 
 
 
