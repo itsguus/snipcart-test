@@ -1,24 +1,31 @@
 title: Snipcart Test
 description: Testing snipcart - Guus
-url: https://itsguus.github.io/snipcart-test/
+url: https://adored-bagpipe.cloudvent.net
 
-permalink: /blog/:title/
 
 defaults:
-  - scope:
-      path: "" # an empty string here means all files in the project
+  - scope: 
+      path: ""
     values:
-      layout: "page"
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
+      language: en
+  - scope: 
+      path: "nl"
+    values:
+      language: nl
+  - scope:
+      path: "_products/en" 
+    values:
+      language: en
+      layout: product
+      permalink: /nl/products/:title/
+  - scope:
+      path: "_products/nl"
       type: products
     values:
-      layout: "product"
+      language: nl
+      layout: product
+      permalink: /nl/producten/:title/
 
-
-
-collections:
+collections: 
   products:
     output: true
-    permalink: /products/:title/

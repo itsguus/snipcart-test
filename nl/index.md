@@ -3,5 +3,4 @@ title: Home
 layout: home
 ---
 
-This is the english page.
-
+Dit is de nederlandse webpagina

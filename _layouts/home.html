@@ -1,19 +1,23 @@
 {% include header.html %}
-{% for item in site.products %}
-<a href="/snipcart-test/{{ item.url }}"><h1>{{ item.title }}</h1></a>
-<img src="/snipcart-test/img/kwal.jpg" alt="">
+
+<h1>{{content}}</h1>
+{% assign products = site.products | where:'language', page.language %}
+{% for item in products %}
+<a href="{{ item.url }}"><h1>{{ item.title }}</h1></a>
+<img src="/img/kwal.jpg" alt="">
 <p>Price: {{ item.price }}</p>
 <p>Description: {{ item.description_text }}</p>
     <div class="container">
         <button class="snipcart-add-item"
         data-item-id="{{ item.sku }}"
         data-item-price="{{ item.price }}"
-        data-item-url="/snipcart-test{{ item.url }}"
+        data-item-url="{{ item.url }}"
         data-item-description="{{ item.description_text }}"
         data-item-image="{{ item.image }}"
         data-item-name="{{ item.name }}">
         Buy
         </button>
     </div>
-    {% endfor %}
+    {% endfor %}    
+
 {% include footer.html %}
