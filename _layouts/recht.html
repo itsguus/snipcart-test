@@ -1,0 +1,18 @@
+{% include header.html %}
+<section>
+    <div class="disk blue"></div>
+    <div class="content">
+        {% include breadcrumbs.html %}
+        <div class="text">
+            <h1>{{page.categorie}}</h1>
+            <h2 class="h1 it">{{page.title}}</h2>
+            {{content}}
+        </div>
+    </div>
+</section>
+<section class="team">
+    {% include bigassshinybutton.html %}
+</section>
+
+
+{% include footer.html %}

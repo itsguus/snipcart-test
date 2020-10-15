@@ -1,0 +1,27 @@
+{% include header.html %}
+
+<section>
+    <div class="disk blue"><span>i</span></div>
+    <div class="content">
+        {% include breadcrumbs.html %}
+        <div class="text">
+            {{ content }}
+        </div>
+        <div class="terms">
+            <p>{{ page.faded_texts.one }}.</p>
+            <p>{{ page.faded_texts.two }}.</p>
+            <p>{{ page.faded_texts.three }}.</p>
+        </div>
+        <div class="dots">
+            {% assign rechtenlist = site.familierechten | where:"language",page.language %}
+            {% for item in rechtenlist %}
+            <a href="{{ item.slug }}" class="dot it "><span>{{ item.title }}</span></a>
+            {% endfor %}
+        </div>
+        <blockquote> "Wij staan voor u klaar, neem vrijblijvend <a href="/{{page.language}}/contact">contact</a> met ons
+            op voor meer informatie."</blockquote>
+    </div>
+</section>
+
+
+{% include footer.html %}

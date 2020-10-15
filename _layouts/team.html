@@ -1,0 +1,24 @@
+{% include header.html %}
+
+<section class="introduction">
+    <div class="disk blue"></div>
+    <div class="content">
+        {% include breadcrumbs.html %}
+        <div class="text">
+            {{content}}
+        </div>
+        <div class="terms">
+            <p>{{ page.faded_texts.one }}.</p>
+            <p>{{ page.faded_texts.two }}.</p>
+            <p>{{ page.faded_texts.three }}.</p>
+        </div>
+    </div>
+</section>
+
+<section class="team">
+    <div class="content">
+        <h2>{{ translations.onze_advocaten[page.language] }}</h2>
+    </div>
+</section>
+
+{% include footer.html %}

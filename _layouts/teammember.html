@@ -1,0 +1,71 @@
+{% include header.html %}
+
+<section class="introduction">
+    <div class="disk blue">
+        <div class="imagebox">
+            <img src="{{ page.image }}" alt="Picture of {{ page.title}}">
+            <div class="overlay"></div>
+        </div>
+        <span>i</span>
+    </div>
+    <div class="content">
+        {% include breadcrumbs.html %}
+        <div class="text">
+            <h1>{{ page.title }}</h1>
+            {{ content }}
+            <a class="btn" target="_blank" href="{{ page.curriculum_vitae_document }}">Curriculum Vitae</a>
+        </div>
+        <div class="info">
+            <a href="mailto:'{{ page.mail }}'">{{ page.mail }}</a>
+            <a href="tel:{{ page.office_number }}">{% assign countrycode =  page.office_number | replace:"+3120","+ 31 (0)20 " | slice: 0, 9 %}{% assign secondpart = page.office_number | slice: 5,3 %}{% assign thirdpart = page.office_number | slice: 8, 2  %}{% assign fourthpart = page.office_number | slice: 10,2  %}
+                {{countrycode}} {{secondpart}} {{ thirdpart }} {{ fourthpart }}</a>
+            <a href="tel:{{ page.mobile_number }}">{% assign countrycode =  page.mobile_number | replace:"+316","+ 31 (0)6 " | slice: 0, 8 %}{% assign secondpart = page.mobile_number | slice: 4,3 %}{% assign thirdpart = page.mobile_number | slice: 7, 3  %}{% assign fourthpart = page.mobile_number | slice: 10,2 %}{{countrycode}}
+                {{secondpart}} {{ thirdpart }} {{ fourthpart }} </a>
+            <a href="mailto'{{ page.secretary.mail }}">
+                <div class="secretary">
+                    <div class="imagebox">
+                        <img src="{{ page.secretary.image }}" alt="Foto van {{ page.secretary.name }}">
+                        <img src="/img/mail_icon.svg" alt="Mail icon">
+                    </div>
+                    <div class="spans">
+                        <span>{{ page.secretary.name }}</span>
+                        <span class="it">{{ translations.secretaresse[page.language] | downcase }}</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="prepublicaties">
+    <div class="content">
+        <h2>{{ translations.publicaties[page.language] }}.</h2>
+    </div>
+</section>
+
+<section class="posts">
+    <div class="content">
+        <div class="disk brown"></div>
+        <div class="blogs">
+            {% assign bloglist = site.posts | where:"language",page.language | where:"author", page.title %}
+            {% for item in bloglist limit: 3 %}
+            <a class="blogdot" href="{{ item.url }}">
+                <img src="/img/logo_white.svg" alt="Silk logo white">
+                <span>Blog</span>
+                <h3 class="it">{{ item.title }}</h3>
+            </a>
+            {% endfor  %}
+        </div>
+        <div class="otherblogs">
+            <h3>{{ translations.oudere_berichten[page.language] }}.</h3>
+            <ul>
+                {% for item in bloglist offset: 3 %}
+                <li><a href="{{item.url}}">{{ item.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+{% include footer.html %}

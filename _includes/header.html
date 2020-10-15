@@ -13,6 +13,9 @@
 <link rel="shortcut icon" sizes="196x196" href="/img/icon-196x196.png">
 <link rel="apple-touch-icon" href="/img/icon-196x196.png">
 
+<!-- Redirect to NL page -->
+{% if page.layout == "home-redirect" %}<meta http-equiv="refresh" content="0; url=http://127.0.0.1:4000/nl/" /> {% endif %}
+
  <!-- Facebook integration -->
 <meta property="og:title" content="{{ page.title }}"/>
 {% if page.image %}<meta property="og:image" content="{{ page.image | prepend: site.baseurl | prepend: site.url }}"/>{% endif %}
@@ -34,13 +37,11 @@
 <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ "/sitemap.xml" | prepend: site.baseurl | prepend: site.url }}" />
 
 <link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl }}">
-<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.20/default/snipcart.css" />
-
-
-<link rel="preconnect" href="https://app.snipcart.com">
-<link rel="preconnect" href="https://cdn.snipcart.com">
+<link rel="stylesheet" href="{{ "/css/fonts.css" | prepend: site.baseurl }}">
 
 </head>
-<body class="{{ page.layout }}{% if page.url contains '/products' %}{% assign webshop = true %}{% endif %}{% if page.url contains '/products' %}{% assign blog = true %}{% endif %}{% if page.url contains '/blog' %}{% assign blog = true %}{% endif %}" id="top">
-<div id="innerbody">
-    {% include navigation.html %}
+{% assign translations = site.data.translations %}
+{% assign famrecht = translations.familierecht[page.language] | downcase  %}
+{% assign erfrecht = translations.erfrecht[page.language] | downcase  %}
+<body class="{{ page.layout }}{% if page.url contains '/products' %}{% assign webshop = true %}{% endif %}{% if page.url contains '/products' %}{% assign blog = true %}{% endif %} {% if page.url contains '/blog' %}{% assign blog = true %} {% endif %}{% if page.url contains famrecht %}familierecht{% endif %} {% if page.url contains erfrecht %}erfrecht{% endif %} " id="top">
+{% include navigation.html %}

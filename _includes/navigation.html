@@ -1,5 +1,43 @@
-<div id="menu">
-    <nav>
-
+<header>
+    <div id="premenu">
+        <a href="tel:+310206706560">T +31(0)20 670 65 60</a>
+        <a href="tel:+310603617002">T +31(0)70 361 70 02</a>
+        <a class="underline" href="mailto:info@silkadvocaten.nl">info@silkadvocaten.nl</a>
+        <div>
+            <a href="/nl/" {% if page.language == "nl" %} class="active" {% endif %}>NL</a>
+            <span>/</span>
+            <a href="/en/" {% if page.language == "en" %} class="active" {% endif %}>EN</a>
+        </div>
+    </div>
+    <nav id="menu">
+        <a class="logo" href="/{{page.language}}">
+            <img id="logobrown" src="/img/logo_brown.svg" alt="Silk Logo">
+            <img id="logoblue" src="/img/logo_blue.svg" alt="Silk Logo" class="displayNone">
+        </a>
+        <ul>
+            {% for item in site.data.navigation.mainmenu[page.language] %}
+            <li><a href="{{ item.url }}">{{ item.title }}<span>.</span></a>
+                {% if item.title  == translations.familierecht[page.language] %}
+                    <ul class="sub familierecht">
+                        {% assign list = site.familierechten | where:"language",page.language %}
+                        {% for i in list %}
+                            <li><a href="{{i.url}}">{{ i.title }}<span>.</span></a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if item.title  == translations.erfrecht[page.language] %}
+                    <ul class="sub erfrecht">
+                        {% for item in site.erfrechten %}
+                            <li><a href="{{item.url}}">{{ item.title }}<span>.</span></a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
     </nav>
-</div>
+    <div id="mobilemenu">
+
+    </div>
+</header>
+<main>

@@ -1,0 +1,70 @@
+{% include header.html %}
+
+<div class="disk blue"></div>
+<section class="introduction">
+        <div class="content">
+        {% include breadcrumbs.html %}
+        <div class="filters">
+            <h3>Filter</h3>
+            <ul>
+                <li><a onclick="filterProducts('{{ translations.familierecht['nl'] }}')" class="btn">{{ translations.familierecht[page.language] }}</a>
+                    <ul class="sub">
+                        {% assign famrechtlist = site.familierechten | where:"language",page.language %}
+                        {% for item in famrechtlist %}
+                        {% if item.title == translations.erfrecht[page.language] or item.title == translations.mediation[page.language] %}
+                        {% continue %} {% endif %}
+                            <li><a onclick="filterProducts('{{ item.title }}')" class="btn">{{ item.title | replace: "informatie","info" }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li><a onclick="filterProducts('{{ translations.erfrecht['nl'] }}')" class="btn">{{ translations.erfrecht[page.language] }}</a>
+                    <ul class="sub">
+                        {% assign erfrechtlist = site.erfrechten | where:"language",page.language %}
+                        {% for item in erfrechtlist %}
+                            <li><a class="btn">{{ item.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li><a onclick="filterProducts('{{ item.title }}')" class="btn">{{ translations.mediation[page.language] }}</a></li>
+            </ul>
+        </div>
+        <div class="text">
+            {{content}}
+        </div>
+    </div>
+</section>
+
+<section class="posts">
+    <div class="content">
+        <ul>
+            {% assign langposts = site.posts | where:"language",page.language %}
+            {% for item in langposts %}
+                <li class="
+                {% if item.filters.familierecht %}familierecht{% endif %}
+                {% for i in item.filters.familierecht_subcategorieen %}
+                    {{item | downcase}}
+                {% endfor %}
+                {% if item.filters.erfrecht %}erfrecht{% endif %}
+                {% for i in item.filters.erfrecht_subcategorieen %}
+                    {{item | downcase}}
+                {% endfor %}
+                {% if item.filters.mediation %}mediation{% endif %}
+                ">
+                    <a class="blogdot" href="{{ item.url }}">
+                        <img src="/img/logo_white.svg" alt="Silk logo white">
+                        <span>Blog</span>
+                        <h3 class="it">{{ item.title }}</h3>
+                        <span>{{ item.author_role }} {{ item.author }}</span>
+                    </a>
+                    <div class="text">
+                        {% assign dateform = item.date | date_to_long_string %} {% if page.language == "nl" %} {% assign dateform = dateform | replace: "March","maart" %}{% endif %}
+                        <span>{{ translations.gepubliceerd_op[page.language] }} {{ dateform }} -  <span>{{ translations.leestijd[page.language] }} {{ item.leestijd_in_minuten }} {{ translations.minuten[page.language] | downcase }}</span></span>
+                        <p>{{ item.content | truncate: 380 | strip }} <a href="{{ item.url }}">{{translations.lees_meer[page.language] | downcase }}</a></p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+{% include footer.html %}

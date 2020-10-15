@@ -1,0 +1,31 @@
+mainmenu:
+  nl: 
+    - title: Familierecht
+      url: /nl/familierecht
+    - title: Erfrecht
+      url: /nl/erfrecht
+    - title: Mediation
+      url: /nl/mediation
+    - title: Team
+      url: /nl/team
+    - title: Blogs
+      url: /nl/blog
+    - title: Tarieven
+      url: /nl/tarieven
+    - title: Contact 
+      url: /nl/contact
+  en: 
+    - title: Familierecht
+      url: /en/familierecht
+    - title: Erfrecht
+      url: /en/erfrecht
+    - title: Mediation
+      url: /en/mediation
+    - title: Team
+      url: /en/team
+    - title: Blogs
+      url: /en/blogs
+    - title: Tarieven
+      url: /en/tarieven
+    - title: Contact 
+      url: /en/contact

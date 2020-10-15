@@ -1,31 +1,83 @@
-title: Snipcart Test
-description: Testing snipcart - Guus
-url: https://adored-bagpipe.cloudvent.net
+title: Silk Advocaten
+description: Silk advocaten & mediators. 
+url:  https://www.silkadvocaten.nl
 
 
 defaults:
-  - scope: 
-      path: ""
-    values:
-      language: en
-  - scope: 
-      path: "nl"
-    values:
-      language: nl
   - scope:
-      path: "_products/en" 
+      path: "" # an empty string here means all files in the project
     values:
-      language: en
-      layout: product
-      permalink: /en/products/:title/
-  - scope:
-      path: "_products/nl"
-      type: products
-    values:
+      layout: "page"
       language: nl
-      layout: product
-      permalink: /nl/producten/:title/
+  - scope: 
+      path: "en"
+    values: 
+      language: en
+
+
+  - scope: 
+      path: "_erfrechten/nl/"
+    values: 
+      permalink: '/nl/erfrecht/:title'
+      layout: recht
+  - scope: 
+      path: "_erfrechten/en/"
+    values: 
+      permalink: '/en/erfrecht/:title'
+      layout: recht
+      language: en
+
+      
+  - scope: 
+      path: "_familierechten/nl/"
+    values: 
+      permalink: '/nl/familierecht/:title'
+      layout: recht
+
+  - scope: 
+      path: "_familierechten/en/"
+    values: 
+      permalink: '/en/familierecht/:title'
+      layout: recht
+      language: en
+
+      
+
+  - scope: 
+      path: "_posts/nl/"
+    values: 
+      permalink: '/nl/blog/:title'
+      layout: blog
+  - scope: 
+      path: "_posts/en/"
+    values: 
+      permalink: '/en/blog/:title'
+      layout: blog
+      language: en
+
+      
+      
+  - scope: 
+      path: "_teammembers/nl/"
+    values: 
+      permalink: '/nl/team/:title'
+      layout: teammember
+  - scope: 
+      path: "_teammembers/en/"
+    values: 
+      permalink: '/en/team/:title'
+      layout: teammember
+      language: en
+
+      
+
 
 collections: 
-  products:
+  posts:
+    output: true
+  teammembers:
+    output: true
+  familierechten:
+    output: true
+  erfrechten:
     output: true

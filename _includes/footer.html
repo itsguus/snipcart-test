@@ -1,9 +1,24 @@
-<div id="footer">
-
-</div>
-<div id="snipcart" data-api-key="ZTUyNTNhYjQtNDkwMS00ZWUxLWI0ZWQtMDcyY2FlY2IwNDE0NjM3MzQwMzc2MDA1ODMyNTMz" hidden></div>
-<script src="https://cdn.snipcart.com/themes/v3.0.20/default/snipcart.js"></script>
+</main>
+<footer>
+    <nav>
+        <ul>
+            <li><a class="clickbox" href="/{{page.language}}"></a></li>
+            <li class="logo"><div class="logo"><img src="/img/logo_blue.svg" alt="logo van Silk"></div></li>
+        </ul>
+        <ul>
+            <li><a href="/{{page.language}}/{{ translations.contact[page.language] | downcase }}">{{ translations.contact[page.language] }}<span>.</span></a></li>
+            <li><a href="/{{page.language}}/{{ translations.algemene_voorwaarden[page.language] | downcase | replace:' ', '-' }}">{{ translations.algemene_voorwaarden[page.language] }}<span>.</span></a></li>
+            <li><a href="/{{page.language}}/{{ translations.privacy[page.language] | downcase }}">{{ translations.privacy[page.language] }}<span>.</span></a></li>
+            <li><a href="/{{page.language}}/{{ translations.disclaimer[page.language] | downcase }}">{{ translations.disclaimer[page.language] }}<span>.</span></a></li>
+            <li><a href="/{{page.language}}/{{ translations.organisatie[page.language] | downcase }}">{{ translations.organisatie[page.language] }}<span>.</span></a></li>
+            <li><a href="/{{page.language}}/{{ translations.klachtenregeling[page.language] | downcase }}">{{ translations.klachtenregeling[page.language] }}<span>.</span></a></li>
+        </ul>
+        <ul class="social">
+            <li><a href="linkedin.com"></a></li>
+            <li><a href="facebook.com"></a></li>
+        </ul>
+    </nav>
+</footer>
 <script type="text/javascript" src="/js/script.js"></script>
 </body>
-
 </html>

@@ -1,9 +1,375 @@
-
-
-* {padding: 0; margin: 0; 	vertical-align: baseline; line-height: 1.4; border: 0;}
+* {padding: 0; margin: 0;  border: 0;}
 html {font-size: 20px; scroll-behavior: smooth;}
-body {font-size: 1rem; color: #282829; }
-#innerbody {max-width: 175rem; margin: 0 auto;position: relative;}
-.container {max-width: 75rem; margin: 0 auto; position: relative;}
-a {text-decoration: none;}
+body {font-size: 0.8rem; color: #0c2538; line-height: 1.4; font-family: 'DM Serif Display'; font-weight: normal;}
+a {text-decoration: none; color: #0c2538; font-family: "Soleil"; font-weight: 300;}
 ul, ol {list-style-type: none;}
+p {margin-bottom: 1.4em; font-family: "Soleil"; font-weight: 300; color: #0c2538;}
+br {margin:0 !important; color: #ded8cc; color: #007a94; color: #004254; color: #d49647; color: #}
+a.underline {text-decoration: underline; text-underline-offset: 0.15rem;}
+a.btn { transition: 300ms ease;;}
+a.btn:hover {color: #ded8cc !important; }
+a.btn::after{content:"."; opacity: 1; transition: 300ms ease;}
+a.btn:hover::after {opacity: 0;}
+.displayNone {display: none;}
+
+/* .disk {animation: spin 150s linear infinite alternate}
+@keyframes spin {
+    0% {transform:rotate(0deg);}
+    100% {transform:rotate(360deg);}
+} */
+
+/* HEADERS */
+h1,h2,h3,h4 {font-weight: 300; margin-bottom: 0.25rem;}
+h1,.h1 { font-size: 4vw;}
+h2 {font-size: 3.5vw;}
+h3 {font-size: 1.2rem; color: #0c2538;}
+h4 {font-size: 1.2rem;}
+
+@media only screen and (min-width: 1000px) {
+    h1,.h1 {font-size: 2rem;}
+    h2 {font-size: 1.65rem;}
+}
+
+@media only screen and (min-width: 1300px) {
+    h1,.h1 {font-size: 4vw;}
+    h2 {font-size: 2.5vw;}
+} 
+
+@media only screen and (min-width: 2000px) {
+    h1,.h1 {font-size: 3rem;}
+    h2 {font-size: 2.4rem;}
+}
+
+/* GENERAL */
+
+header,main,footer {max-width: 175rem;}
+header {position: absolute; z-index: 2; right: 0; left: 0; margin: 0 auto;}
+section {width: 100%; position: relative; overflow: hidden;}
+section .content {max-width: 75rem; margin: 0 auto; width: calc(100% - 4rem);}
+div.disk {border-radius: 50%; position: absolute; z-index: -1;}
+.it {font-style: italic;}
+.dot {border-radius: 50%; background: #d49647; color: #004254; font-family: "DM Serif Display"; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 1rem; margin: 1rem auto; transition: 300ms ease; position: relative;}
+.dot * {z-index: 1;}
+.dot:hover {color: #FFF;}
+.dot span {margin: 1rem;}
+.dot span::after {content: "."; opacity: 1; transition: 300ms ease;}
+.dot:after {content:""; position: absolute; height: 100%; width: 100%; background: linear-gradient(50deg, #d49647 20%, #007a94 140%);border-radius: 50%; opacity: 0; transition: 500ms ease;}
+.dot:hover::after {opacity: 1; transform: rotate(-90deg);}
+.dot:hover span::after{ opacity: 0; }
+
+#breadcrumbs {font-family: "Soleil"; font-weight: 300; font-size: 0.7rem; margin-top: 1rem; position: absolute ; left: 2rem;}
+#breadcrumbs span.lastitem::after {content: ".";}
+
+
+.disk.blue {background: linear-gradient(180deg, #0c2538 2%, #55a995 160%); width: 99%;  padding-bottom: 99%; right: -20%; top: -20%; margin: auto; bottom: -20%; border-radius:  50%; height: 0; }
+.disk.blue:after  {content:""; display: block; position: absolute;  background: linear-gradient(-120deg, #FFF -22%, rgba(0,0,0,0.2) 88%); height: 100%; width: 100%; border-radius: 50%; opacity: 0.5}
+
+.disk.brown {width: 120%; padding-bottom: 120%; left: -40%; bottom: -40%; top: 10%; height: 0; margin: auto;  background: rgb(2,0,36); background: linear-gradient(120deg, rgba(255,255,255,0.3) 0%, rgb(180, 121, 61) 100%); z-index: 1;}
+
+
+/* MENU */
+#mobilemenu {display: none;}
+
+#premenu {display: flex; margin-left: auto; justify-content: flex-end;}
+#premenu > * {margin: 1rem 1.5rem; font-size: 0.65rem;}
+#premenu > div {margin-left: 4rem; margin-right: 2rem;}
+#premenu a.active {font-weight: bold;}
+
+@media only screen and (max-width: 900px) {
+    #premenu > a {display: none;}
+}
+
+#menu {margin: 4rem 2rem 0; display: flex;}
+#menu .logo {width:45rem;  max-width: 24rem; display: block; margin-top: -3rem; margin-right: 3rem;}
+#menu > ul {display: flex; justify-content: flex-end; width: 100%; height: 2.5rem;}
+#menu > ul > li {position: relative; margin-left: 2rem;}
+#menu > ul li:first-of-type {margin-left: 0;}
+#menu > ul li a {color: #ded8cc; text-transform: uppercase; transition: 300ms ease; padding: 0.5rem; font-size: 0.7rem; mix-blend-mode: difference;} 
+#menu > ul li > a:hover  {color: #d49647;}
+#menu > ul li a span {opacity: 1; transition: 300ms ease;}
+#menu > ul li a:hover span {opacity: 0;}
+
+#menu ul.sub {position: absolute; height: 0%; overflow: hidden; transition: 500ms ease; width: 200%;}
+#menu ul.sub li {margin-top: 0.5rem;}
+#menu ul.sub li a {font-style: italic; font-weight: 300; text-transform: initial; opacity: 0.8;}
+#menu > ul:hover {padding-bottom: 14rem; padding-top: 5rem; margin-top: -5rem;}
+#menu > ul li:hover ul.sub.familierecht  {height: 13.5rem;}
+#menu > ul li:hover ul.sub.erfrecht  {height: 6.5rem; }
+
+
+@media only screen and (max-width: 1300px) {
+    #menu > ul { overflow: scroll; justify-content: flex-start; -ms-overflow-style: none; scrollbar-width: none; }
+    #menu > ul::-webkit-scrollbar- {display: none;}
+    #menu > ul > li {margin-left: 0; margin-right: 1.3rem;}
+    #menu .logo {width:18.5rem; }
+}
+
+
+/* BIG ASS SHINY BUTTON */
+.contactbutton { display: block; background: #d49647; -webkit-box-shadow: 5px 5px 18px 0px rgba(0,0,0,0.25);  -moz-box-shadow: 5px 5px 18px 0px rgba(0,0,0,0.25); box-shadow: 5px 5px 18px 0px rgba(0,0,0,0.25); transition: 300ms ease; border-radius: 50%; color: #ded8cc; height: 7rem; width: 7rem; text-align: center; position: relative; z-index: 3; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 1rem;margin-right: 1rem;}
+.contactbutton:hover {-webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.25);  -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.25); box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.25);  transform: translate(0.1rem, 0.1rem);}
+.contactbutton span {display: block; }
+.contactbutton span:nth-of-type(1) { font-family: "DM Serif Display"; font-size: 0.75rem;}
+.contactbutton span:nth-of-type(2) { font-size: 0.5rem;  margin-top: 0.3rem; font-weight: 300;}
+
+
+@media only screen and (max-width: 900px) {
+    .home section.landing .disk {padding-bottom: 0%;min-width: 44.5rem; min-height: 44.5rem; width: auto;}
+}
+
+section.landing .content {margin: 10rem auto; display: flex; flex-direction: column; align-items: flex-end;  color: #ded8cc;}
+section.landing .content h1 {text-align: right; margin-top: 5rem; font-size: 4.9vw;}
+section.landing .content p {width: 40%; font-family: sans-serif; font-weight: 300;}
+
+@media only screen and (min-width: 1700px) {
+    section.landing .content h1 {font-size: 4rem;}
+}
+
+section.landing .scrolldown {height:2rem; width: 2rem; background: #d49647; border-radius: 50%; position: absolute; left: 2rem; bottom: 4rem; cursor: pointer; display: flex; align-items: center; justify-content: center;}
+section.landing .scrolldown::after {height: 0rem; width: 0rem; content:""; display: block; border: 12px solid transparent; border-top: 12px solid #FFF; margin-top: 0.65rem; }
+
+
+section.team {background:navy; padding-bottom: 40%;}
+section.team h2 { position: absolute; bottom: -1.8rem; color: #FFF; font-size: 4rem; }
+
+section.posts { padding-bottom: 5rem; }
+section.posts .disk {z-index: 2;}
+section.posts .content {margin-top: 5rem; z-index: 3; position: relative;}
+section.posts .blogs {display: flex; justify-content: space-between;}
+section.posts .blogdot {width: 18rem; height: 18rem;border-radius: 50%; background:#ded8cc; display: flex; flex-direction: column; text-align: center; justify-content: center; transition: 300ms ease; position: relative; overflow: hidden;}
+section.posts .blogdot span:nth-of-type(1) {text-transform: uppercase; margin-bottom: 12%; margin-top: -8%; font-size: 0.5rem;}
+section.posts .blogdot h3 {font-family: "DM Serif Display"; font-size: 1.3rem; margin: 0 1.2rem;}
+section.posts .blogdot span:nth-of-type(2) {text-transform: uppercase;  margin-top: 12%; font-size: 0.7rem;}
+section.posts .blogdot:before{ content:""; display: block; height: 100%; width: 100%; position: absolute;  background: linear-gradient(-120deg, #FFF -52%, rgba(0,0,0,0.2) 108%);  border-radius: 50%;  opacity: 0; transition: 500ms ease; z-index: 1;}
+section.posts .blogdot:after { content:""; display: block; height: 100%; width: 100%; position: absolute;  background: linear-gradient(180deg, #0c2538 2%, #55a995 100%); border-radius: 50%; opacity: 0; transition: 500ms ease;}
+section.posts .blogdot img {position: absolute; width: 150%; left: -5%; bottom: -25%; opacity: 0; transition: 500ms ease;}
+
+
+section.posts .blogdot * {z-index: 2;}
+section.posts .blogdot:hover::before{  opacity: 0.8; transform: rotate(270deg);}
+section.posts .blogdot:hover::after {  opacity: 1; transform: rotate(270deg);}
+section.posts .blogdot:hover img {opacity: 1;}
+
+section.posts h2 {margin-top: 5rem; margin-bottom: 2rem; color:#007a94;}
+section.posts .expertises {display: grid;   grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); grid-gap: 3rem; margin-bottom: 10rem;}
+section.posts .expertises article {display: flex; flex-direction: column;}
+section.posts .expertises article h3 {font-family: "Soleil"; text-transform: uppercase; font-size: 1rem; margin-bottom: 1rem;}
+section.posts .expertises article a {font-family: "DM Serif Display"; color: #007a94; align-self:flex-end;}
+
+@media only screen and (max-width: 1300px) {
+    section.posts .blogdot {width: 15rem; height: 15rem; }
+    section.posts .blogdot span:nth-of-type(2) {font-size: 0.55rem; margin-top: 8%;}
+}
+
+@media only screen and (max-width: 1050px) {
+    .home section.posts .blogs {justify-content: space-around;}
+    .home section.posts .blogdot:nth-of-type(3) {display: none;}
+}
+
+@media only screen and (max-width: 750px) {
+    section.posts .blogs {justify-content:center; align-items: center; flex-direction: column;}
+    section.posts .blogdot {margin-top: 2rem; width: 12rem; height: 12rem;  }
+    section.posts .blogdot:nth-of-type(3) {display: flex;}
+    section.posts .blogdot span:nth-of-type(1) { margin-bottom: 5%;}
+    section.posts .blogdot h3 { font-size: 1rem;}
+    section.posts .blogdot span:nth-of-type(2) { font-size: 0.5rem;}
+    section.posts .expertises {grid-template-columns: 1fr;}
+}
+
+
+/* FOOTER */
+
+footer {background: linear-gradient(10deg, #004254 20%, #007a94 60%, transparent 80%); height: 5rem; position: relative; }
+footer::after {content:""; display: block; position: absolute;  top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, transparent 0%, #0c2538 98%);}
+footer nav {max-width: 75rem; width: 100%; margin:0 auto; display: flex; justify-content: space-between;}
+footer ul {display: flex; align-items: center; margin-top: 1.5rem; position: relative;}
+footer ul li a {color: #d49647; text-transform: uppercase; position: relative; z-index: 3; transition: 300ms ease; font-size: 0.7rem;}
+footer ul li a.clickbox {position: absolute; top: -2rem; left:0; height: 5rem; width: 7rem; }
+footer ul li a:hover {color: #ded8cc !important; mix-blend-mode: normal; }
+footer ul li a span {opacity: 1; transition: 300ms ease;}
+footer ul li a:hover span {opacity: 0; }
+footer ul div.logo { display: block; width: 5rem; height: 5rem; background: #FFF; border-radius: 50%; margin-top: -3.5rem; z-index: 0; mix-blend-mode: normal; margin-left: 1rem; position: relative; overflow: hidden; z-index: 1;}
+footer ul div.logo img {display: block; width: 7.5rem; height: auto; bottom: -1.15rem; position: absolute; left: -0.3rem;}
+footer ul:nth-of-type(2) {justify-content: space-around; width: 75%;}
+footer ul.social {margin-right: 2rem;}
+footer ul.social a { display: block; width: 1rem; height: 1rem; background: #fff; border-radius: 50%; margin-left: 0.5rem; mix-blend-mode: normal;}
+
+.home footer {margin-top: -5rem; position: relative;}
+.home footer ul:nth-of-type(2) li a {color: #909090; mix-blend-mode: difference;}
+.home footer ul:nth-of-type(2) li a:hover {color: #ded8cc; mix-blend-mode: initial;}
+
+@media only screen and (max-width: 1100px) {
+    footer { height: auto; background: linear-gradient(30deg, #004254 20%, #007a94 60%, transparent 80%);}
+    footer::after { background: linear-gradient(45deg, transparent -60%, #0c2538 70%)}
+    footer nav ul:nth-of-type(2) {flex-direction: column;  align-items: flex-start; width: 100%; margin-left: 2rem;}
+    .home footer {height: 10rem; margin-top: -10rem;}
+    .home section.posts { padding-bottom: 10rem;}
+    footer ul div.logo { margin-top: -6.5rem; }
+}
+@media only screen and (max-width: 600px) {
+    .home footer { height: auto; min-height: 10rem;}
+    .home footer ul:nth-of-type(2) li a {color: #d49647;}
+    footer nav {flex-direction: column; height: auto;}
+    footer ul div.logo { margin-top: -3rem; }
+    footer ul li {margin-bottom: 0.2rem;}
+    footer ul.social {margin-right: 0rem; margin-left: 1.5rem; margin-bottom: 3rem;}
+
+}
+
+/* RECHTEN - FAMILIE OF ERF VERZAMEL */
+
+.rechten .disk {width: 99%;  padding-bottom: 99%; right: -20%; top: -28%; margin: auto; bottom: -10%; border-radius:  50%; height: 0;}
+.disk span {color: #FFF; font-size: 18vw;  position: absolute; bottom: 5%; left:13%; user-select: none; z-index: 1;}
+.rechten section .content {margin-top: 18rem; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 20rem 1fr 1fr 1fr; margin-bottom: 20rem;}
+.rechten section .content .terms {grid-row: 2/4; grid-column: 1; display: flex; flex-direction: column; justify-content: center; font-family: "DM Serif Display"; margin-top: -10rem;}
+.rechten section .content .terms p {font-family: "DM Serif Display"; color: #007a94; font-size: 4rem; margin-bottom: 0; user-select: none; opacity: 0.08;}
+.rechten section .content .text {grid-row: 1/3; grid-column: 2/3; color: #ded8cc; font-weight: 300;}
+.rechten section .content .text h1 {text-align: right; margin-bottom: 2rem;}
+.rechten.familierecht section .content .text p { color: #ded8cc;}
+.rechten section .content blockquote {grid-row: 3/5; grid-column: 1;}
+.rechten blockquote { font-size: 1.3rem; width: 18rem; margin-top: 15rem; color: #000;}
+.rechten blockquote a { font-family: "DM Serif Display"; color: #007a94}
+
+.rechten section .content .dots {grid-row: 2/5; grid-column: 2; display: flex; flex-wrap: wrap; max-width: 31rem;}
+.rechten section .content .dots .dot {width:8rem; height: 8rem; font-size: 0.8rem;}
+.rechten footer ul li a {mix-blend-mode: normal; color: #d49647;}
+
+/* RECHT - ALLE SUBCATEGORIEEN */
+
+.recht #menu > ul li a {color:#000;}
+.recht #menu > ul li a:hover {color:#d49647;}
+
+.recht .disk {width: 99%;  padding-bottom: 99%; left: -20%; top: 20%; right: initial;  margin: auto; bottom: -10%; border-radius:  50%; height: 0;}
+.recht .content {margin-top: 18rem;}
+.recht .content h1, .h1 {color: #d49647; font-weight: 300;}
+.recht .content h1 {margin-bottom: 0;}
+.recht .content .h1 {margin-bottom: 2rem;}
+.recht .content .h1::after {content:"."}
+.recht .content .text {display: flex; flex-direction: column; align-items: flex-end;}
+.recht .content .text > * {max-width: 45rem;}
+.recht .content .text > p:last-of-type {margin-bottom: 7rem;}
+
+.recht section.team {overflow: visible;}
+.recht .contactbutton {left: 5rem; top: -6rem; position: absolute;}
+
+/* RECHT - other colored version */
+.recht.erfrecht .content h1, .recht.erfrecht .h1 {color: #007a94; }
+.recht.erfrecht #logoblue {display: block;}
+.recht.erfrecht #logobrown {display: none;}
+.recht.erfrecht .disk {background: linear-gradient(290deg, rgba(255,255,255,0.3) 0%, rgb(180, 121, 61) 100%); left: auto; right: -20%;}
+.rechten.erfrecht .disk {background: linear-gradient(290deg, rgba(255,255,255,0.3) 0%, rgb(180, 121, 61) 100%); } 
+.rechten.erfrecht h1, .rechten.erfrecht .h1 {color: #007a94;}
+.rechten.erfrecht .text p {color: #004254;}
+
+/* TEAM  */
+.team section.introduction {padding-bottom: 5rem;}
+.team section.introduction .disk {right: auto; left: -30%; top: -40%; transform: rotate(-70deg); width: 115%; padding-bottom: 115%; background: linear-gradient(-10deg, #004254 20%, #007a94 50%, #FFF 90%); }
+.team section.introduction .content {margin-top: 18rem; display: flex; justify-content: flex-end; margin-bottom: 10rem;}
+.team section.introduction .content .text {display: flex; flex-direction: column; justify-content: flex-end;}
+.team section.introduction .content .text h1 {text-align: right;}
+.team section.introduction .content .text * {max-width: 45rem; color: #ded8cc;}
+.team section.introduction .content .terms {position: absolute; left: 8rem; bottom: 3rem; display: flex; flex-direction: column; justify-content: center; font-family: "DM Serif Display"; z-index: 1;}
+.team section.introduction .content .terms p {font-family: "DM Serif Display"; margin-bottom: 0; color: #ded8cc; font-size: 4rem; user-select: none; opacity: 0.08;}
+.team section.team {margin-top: -5.2rem;}
+
+/* TEAMMEMBER */
+.teammember #breadcrumbs {left: 0;}
+.teammember section.introduction .disk {overflow: hidden; top:0%; bottom: auto;}
+.teammember section.introduction .disk::after {z-index: 2;}
+.teammember section.introduction .disk .imagebox{ position: absolute; z-index:1; top:50%; width: 100%; height: 50%;}
+.teammember section.introduction .disk .imagebox .overlay { position: absolute; z-index:1; top:0; width: 100%; height: 100%; background: #004254; opacity: 0.2;}
+.teammember section.introduction .disk .imagebox img { position: absolute; z-index:1; width: 100%; height: 100%; object-fit: cover;}
+.teammember section.introduction .disk span {z-index: 3;}
+
+.teammember section.introduction .content {margin-top: 18rem; display: flex; flex-direction: column; align-items: flex-end; position: relative; padding-bottom: 3rem;}
+.teammember section.introduction .content .text {display: flex; flex-direction: column; justify-content: flex-end;}
+.teammember section.introduction .content .text h1 {text-align: right;}
+.teammember section.introduction .content .text * {max-width: 45rem; color: #ded8cc;}
+.teammember section.introduction .content .text a {color: #d49647; display: inline-block; width: 20%;}
+
+.teammember section.introduction .content .info { margin-top: 30%; align-self: flex-start; display: flex; flex-direction: column; margin-bottom: -3rem; }
+
+.teammember section.introduction .info > a {color: #0c2538; font-size: 1rem; margin-left: 2rem; font-family:"DM Serif Display"; transition: 300ms ease;}
+.teammember section.introduction .info > a:hover {color: #d49647;}
+.teammember section.introduction .info > a:first-of-type {margin-bottom: 0.5rem;}
+
+.teammember section.introduction .info > a .secretary {display: flex; margin-left: -2rem; align-items: center; margin-top: 1rem; position: relative; z-index: 1;}
+.teammember section.introduction .info > a .secretary .spans {display: flex; flex-direction: column; color: #007a94; margin-left: 0.5rem; font-size: 0.9rem;}
+.teammember section.introduction .info > a .secretary .spans span:first-of-type {font-size: 1.3rem;}
+.teammember section.introduction .info > a .secretary span { transition: 300ms ease; }
+.teammember section.introduction .info > a .secretary:hover span {color: #d49647;}
+
+.teammember section.introduction .info > a .imagebox {height: 7rem; width: 7rem; position: relative; display: flex; align-items: center; justify-content: center;}
+.teammember section.introduction .info > a .imagebox img:first-of-type {position: absolute; height: 100%; width: 100%; object-fit: cover; }
+.teammember section.introduction .info > a .imagebox img:last-of-type {height: 35%; width: auto; z-index: 2;  transition: 500ms ease;}
+
+.teammember section.introduction .info > a .secretary:hover img:last-of-type{transform: scale(1.1);}
+
+.teammember section.prepublicaties {padding-top: 15rem; background: #004254; margin-top: -1rem; display: flex; text-align: right; color: #FFF; }
+.teammember section.prepublicaties h2 {margin-bottom: -1.1rem; font-size: 3rem;}
+
+.teammember section.posts .disk {transform: rotate(190deg);}
+.teammember section.posts .content {display: flex; align-items: flex-start; flex-direction: column;  max-width: 65rem;}
+.teammember section.posts .blogs{width: 80%; z-index: 3; align-self: flex-end;}
+.teammember section.posts .blogdot {width: 15rem; height: 15rem;  flex-shrink: 0;}
+.teammember section.posts .blogdot:nth-of-type(2) {margin: 0 1rem;}
+.teammember section.posts .blogdot span:nth-of-type(2) {font-size: 0.55rem; margin-top: 8%;}
+
+
+@media only screen and (max-width: 1240px) {
+    .teammember section.posts .blogs {justify-content: space-around;}
+    .teammember section.posts .blogdot:nth-of-type(3) {display: none;}
+}
+
+
+@media only screen and (max-width: 880px) {
+    .teammember section.posts .blogs{width: 100%;}
+    section.posts .blogs {justify-content:center; align-items: center; flex-direction: column;}
+    section.posts .blogdot {margin-top: 2rem; width: 12rem; height: 12rem;  }
+    section.posts .blogdot:nth-of-type(3) {display: flex;}
+    section.posts .blogdot span:nth-of-type(1) { margin-bottom: 5%;}
+    section.posts .blogdot h3 { font-size: 1rem;}
+    section.posts .blogdot span:nth-of-type(2) { font-size: 0.5rem;}
+}
+
+.teammember section.posts .otherblogs {z-index: 2; width: 80%; margin-top: 5rem;}
+.teammember section.posts .otherblogs h3 {color: #004254; font-size: 1.5rem; margin-bottom: 2rem;}
+.teammember section.posts .otherblogs ul li {margin-bottom: 1rem;}
+.teammember section.posts .otherblogs ul li a:hover {text-decoration: underline #007a94; text-underline-offset: 0.3rem;}
+
+
+/* BLOGS */
+.blogs #menu > ul li a {color:#000;}
+.blogs #menu > ul li a:hover {color:#d49647;}
+
+.blogs .disk {right: auto; left: 5%; right: 5%; top: -30%; width: 90%; padding-bottom: 90%; background: linear-gradient(270deg, #004254 0%, #007a94 50%, #FFF 90%); }
+.blogs section.introduction .content {margin-top: 18rem; display: flex; justify-content: space-between; margin-bottom: 10rem;}
+.blogs section.introduction .content .text h1 {text-align: right;}
+.blogs section.introduction .content .text * {max-width: 35rem; color: #ded8cc;}
+
+.blogs section.introduction .content .filters {margin-top: 5rem; font-family: "Soleil"; font-style: italic; text-transform: uppercase; }
+.blogs section.introduction .content .filters h3 {font-style: normal; margin-left: 1rem;}
+.blogs section.introduction .content .filters ul li {margin: 0.5rem; position: relative; }
+.blogs section.introduction .content .filters > ul > li {margin: 1.5rem 0.5rem;}
+.blogs section.introduction .content .filters ul li a {cursor: pointer; padding: 0.5rem;}
+
+
+.blogs section.introduction .content .filters ul li ul.sub {position: absolute; top: -0.6rem; left: 7rem; width: 0%; overflow: hidden; transition: 300ms ease;}
+.blogs section.introduction .content .filters ul li:hover  ul.sub {width: 200%;}
+.blogs section.introduction .content .filters ul li  ul.sub li {width: 8rem;}
+.blogs section.introduction .content .filters ul li ul.sub li a { font-size: 0.5rem; }
+.blogs section.introduction .content .filters a.btn:hover {color: #007a94 !important;}
+
+.blogs section.posts {margin-top: -8rem;}
+.blogs section.posts .blogdot span:nth-of-type(2) {font-size: 0.55rem; margin-top: 8%;}
+.blogs section.posts .blogdot {width: 12rem; height: 12rem; background: #d49647;  flex-shrink: 0;}
+.blogs section.posts .blogdot span:nth-of-type(1) { margin-bottom: 8%;}
+.blogs section.posts .blogdot h3 { font-size: 0.8rem; margin: 0 0.9rem; color: #FFF; transition: 300ms ease;}
+.blogs section.posts .blogdot:hover h3 {color: #0c2538;}
+.blogs section.posts .blogdot span:nth-of-type(2) { font-size: 0.5rem;}
+
+.blogs section.posts ul li {display: flex; justify-content: space-around; margin-top: 3rem;}
+.blogs section.posts ul li .text {display: flex; flex-direction: column; justify-content: center; width: 60%;}
+.blogs section.posts ul li .text span {margin-bottom: -1rem; font-family: "Soleil"; font-size: 0.6rem;  font-weight: 300;}
+.blogs section.posts ul li .text span span {color: #d49647; font-style: italic;}
+.blogs section.posts ul li .text a {color: #d49647;}
